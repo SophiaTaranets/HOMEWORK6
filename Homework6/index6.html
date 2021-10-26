@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test"> First </div>
+    <img id = "image" class="image" src="images/dog.jpg" width="200" height="222">
+    <h2>Article header</h2>      
+        <div id="text">
+        <p>First paragraph</p>
+        <p>Second paragraph</p>
+        <p>Third paragraph</p>
+      </div>
+	<p>Another text</p>
+
+    <ul id = "list"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul> 
+
+    <h1 id="header">I'am a big header!!!</h1>
+    <div id="myDiv">
+        <p>First paragraph</p>
+        <p>Second paragraph</p>
+        <p>Third paragraph</p>
+        <p>Fourth paragraph</p>
+    </div>
+    <ul id="myList">
+        <li>Make</li>
+        <li>me</li>
+        <li>horizontal!</li>
+    </ul>
+    <span>Make me invisible, please!</span>
+    <input type="text" id="input1" value="Text1">
+    <input type="text" id="input2" value="Text2">
+    <main class="mainClass check item"> 	
+        <div id="myDiv">
+            <p>First paragraph</p>           
+        </div>
+    </main> 
+
+
+
+
+    <script>
+        // ************** Task1 ************** 
+
+        // 1 way
+        //document.getElementById("test").innerHTML = "Last";
+
+        // 2 way
+
+        const text = document.createTextNode("Last");
+        test.replaceWith(text);
+
+        // ************** Task2 ************** 
+
+        image.setAttribute('src', "images/cat.jpg"); 
+        alert(image.outerHTML);
+
+        // ************** Task3 ************** 
+        
+        let elements = document.querySelectorAll("#text p");
+        for(let i = 0; i<elements.length;i++){
+            alert("Selector text " + i + ": " + elements[i].innerHTML);
+        }
+
+        //************** Task4 ************** 
+
+        // 1 way
+
+        /*
+        let firstElement = document.getElementById("list").firstChild.innerHTML;
+        let fifthElement = document.getElementById("list").lastChild.innerHTML;
+        let secondElement = document.getElementById("list").firstChild.nextSibling.innerHTML;
+        let fourthElement = document.getElementById("list").lastChild.previousSibling.innerHTML;
+        let thirdElement = document.getElementById("list").firstChild.nextSibling.nextSibling.innerHTML;
+        */
+
+        // 2 way 
+        /*
+        let mainElement = document.getElementById("list");
+        let firstElement = mainElement.childNodes[0].innerHTML;
+        let fifthElement =mainElement.childNodes[4].innerHTML;
+        let secondElement = mainElement.childNodes[1].innerHTML;
+        let fourthElement = mainElement.childNodes[3].innerHTML;
+        let thirdElement = mainElement.childNodes[2].innerHTML;
+        */
+        // 3 way doesn`t work for this list???
+        /*
+        let mainElement = document.getElementById("list");
+        let firstElement = mainElement.children[0].innerHTML;
+        let fifthElement =mainElement.children[4].innerHTML;
+        let secondElement = mainElement.children[1].innerHTML;
+        let fourthElement = mainElement.children[3].innerHTML;
+        let thirdElement = mainElement.children[2].innerHTML;
+        */
+        /*
+        alert(firstElement);
+        alert(secondElement);
+        alert(thirdElement);
+        alert(fourthElement);
+        alert(fifthElement);
+        */
+
+        //************** Task5 ************** 
+
+        //document.getElementById("header").children[5].style.backgroundColor = "lightgreen";
+        document.body.children[5].style.backgroundColor = "lightgreen";
+        document.getElementById("myDiv").children[0].style.fontWeight = "600";
+        document.getElementById("myDiv").children[1].style.color = "red";
+        document.getElementById("myDiv").children[2].style.textDecoration = "underline";
+        document.getElementById("myDiv").children[3].style.fontStyle = "italic";
+        document.getElementById("myList").style.listStyle= "none";
+        document.getElementById("myList").style.display= "flex";
+        document.getElementsByTagName("span")[0].style.display = "none";
+
+        //************** Task6 ************** 
+
+        let first = prompt("Enter the first value: ");
+        let second = prompt("Enter the second value: ");
+        let in1 = document.getElementById("input1");
+        let in2 = document.getElementById("input2");
+        in1.value = first;
+        in2.value = second; 
+        
+        // swap values 
+        let temp1Inp = first;
+        let temp2Inp = second;
+        in1.value = temp2Inp;
+        in2.value = temp1Inp;
+
+        //************** Task7 ************** 
+
+        const a = 10;
+        document.body.innerHTML = 
+        `<main class="mainClass check item"> 	
+		        <div id="myDiv">${a}
+           <p>First paragraph</p>           
+         </div>
+       </main> `;
+
+
+
+    
+    </script>
+    
+</body>
+</html>
